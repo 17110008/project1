@@ -1,0 +1,165 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Project1
+{
+    public partial class FormDiem : Form
+    {
+        LinkedList<string> ds = new LinkedList<string>();
+        public FormDiem()
+        {
+            InitializeComponent();
+            docfile();
+        }
+        public void docfile()
+        {
+            string filetxt = "D:\\Desktop\\project1\\Diem.txt";
+            FileStream mofile = new FileStream(filetxt, FileMode.Open, FileAccess.Read);
+            StreamReader taodata = new StreamReader(mofile);
+            taodata.BaseStream.Seek(272, SeekOrigin.Begin);
+            string str;
+            while ((str = taodata.ReadLine()) != null)
+            {
+                ds.AddLast(str);
+            }
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
+            taodata.Close();
+            mofile.Close();
+
+        }
+        public void xuatfile()
+        {
+            StreamWriter intxt = new StreamWriter("D:\\Desktop\\project1\\outputdiem.txt", false);
+            //true = ghi tiep vao file, false = ghi de le du lieu cu
+            intxt.WriteLine(textBox1.Text);
+            MessageBox.Show("Đã Xuất");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            xuatfile();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string[] lines = this.textBox1.Lines;
+            int dongso = 3;
+            var newlines = lines.Skip(dongso);
+            this.textBox1.Lines = newlines.ToArray();
+        }
+
+        private void Addsau_Click(object sender, EventArgs e)
+        {
+            LinkedListNode<string> node = ds.First;
+
+            while (node != null)
+            {
+
+                if (node.Value.Contains(txtConTro.Text))
+                {
+                    var them = node;
+                    node = node.Next;
+                    ds.AddAfter(them, txtaddMaHS.Text.Trim() + " " + txtMon.Text.Trim() + "     " + txtDiem.Text.Trim());
+                }
+                else
+                {
+                    node = node.Next;
+                }
+            }
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
+        }
+
+        private void btnAddtrc_Click(object sender, EventArgs e)
+        {
+            LinkedListNode<string> node = ds.First;
+
+            while (node != null)
+            {
+
+                if (node.Value.Contains(txtConTro.Text))
+                {
+                    var them = node;
+                    node = node.Next;
+                    ds.AddBefore(them, txtaddMaHS.Text.Trim() + " " + txtMon.Text.Trim() + "     " + txtDiem.Text.Trim());
+                }
+                else
+                {
+                    node = node.Next;
+                }
+            }
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            LinkedListNode<string> node = ds.First;
+
+            while (node != null)
+            {
+                if (node.Value.Contains(txtXoa.Text))
+                {
+                    var xoa = node;
+                    node = node.Next;
+                    ds.Remove(xoa);
+                }
+                else
+                {
+                    node = node.Next;
+                }
+            }
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
+        }
+
+        private void btnAddFirst_Click(object sender, EventArgs e)
+        {
+            ds.AddFirst(txtaddMaHS.Text.Trim() + " " + txtMon.Text.Trim() + "     " + txtDiem.Text.Trim());
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
+        }
+
+        private void btnAddlast_Click(object sender, EventArgs e)
+        {
+            ds.AddLast(txtaddMaHS.Text.Trim() + " " + txtMon.Text.Trim() + "     " + txtDiem.Text.Trim());
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            docfile();
+            txtConTro.ResetText();
+            txtConTro.Focus();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            LinkedListNode<string> node = ds.First;
+
+            while (node != null)
+            {
+                if (node.Value.Contains(txtConTro.Text))
+                {
+                    var timkiem = node;
+                    node = node.Next;
+                    textBox1.Text = String.Join(Environment.NewLine, timkiem.Value);
+                }
+                else
+                {
+                    node = node.Next;
+                }
+            }
+        }
+    }
+}
