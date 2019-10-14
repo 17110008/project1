@@ -1,0 +1,109 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Project1
+{
+    public partial class FormHSKem : Form
+    {
+        LinkedList<string> ds = new LinkedList<string>();
+        public FormHSKem()
+        {
+            InitializeComponent();
+            docfile();
+        }
+      
+        public void docfile()
+        {
+            string kethop;
+            string khoangtrang = "  ";
+            string filetxt = "D:\\Desktop\\project1\\DanhSach.txt";
+            FileStream mofile = new FileStream(filetxt, FileMode.Open, FileAccess.Read);
+            StreamReader taodata = new StreamReader(mofile);
+            taodata.BaseStream.Seek(365, SeekOrigin.Begin);
+            string str;
+            string filetxt1 = "D:\\Desktop\\project1\\Diem.txt";
+            FileStream mofile1 = new FileStream(filetxt1, FileMode.Open, FileAccess.Read);
+            StreamReader taodata1 = new StreamReader(mofile1);
+            taodata1.BaseStream.Seek(272, SeekOrigin.Begin);
+            string str1;
+            string dtn;
+            while ((str = taodata.ReadLine()) != null && (str1 = taodata1.ReadLine()) != null)
+            {
+                bool duyethskem = false;
+                string temp;
+                string ok;
+                var a = str.Replace(" 0 ", " Nam ");
+                var b = str.Replace(" 1 ", " Nu  ");
+                var c = str1.Substring(5, 20);
+                var diemtoan = str1.Substring(15, 5);
+                float diemt = float.Parse(diemtoan);
+
+                string str2 = taodata1.ReadLine();
+                var d = str2.Substring(5, 20);
+                var diemvan = str2.Substring(15, 5);
+                float diemv = float.Parse(diemvan);
+                float kq = diemt + diemv;
+                if (diemt >= 7 && diemv >= 7 && kq >= 16)
+                {
+                    temp = kq.ToString();
+                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : Gioi";
+                }
+                else if (diemt >= 6 && diemv >= 6 && kq >= 14)
+                {
+
+                    temp = kq.ToString();
+                    ok = "    Tong Diem La " + temp + " ->" + " Xep Loai : Kha";
+                }
+                else if (diemt >= 4 && diemv >= 4 && kq >= 10)
+                {
+ 
+                    temp = kq.ToString();
+                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : TB";
+                }
+                else
+                {
+                    duyethskem = true;
+                    temp = kq.ToString();
+                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : Kem";
+                    if (str.Contains(" 0 ") && duyethskem)
+                    {
+                        kethop = String.Concat(a, khoangtrang, c, d, ok);
+                        ds.AddLast(kethop);
+
+                    }
+                    else if (str.Contains(" 1 ") && duyethskem)
+                    {
+                        kethop = String.Concat(b, khoangtrang, c, d, ok);
+                        ds.AddLast(kethop);
+
+                    }
+                }
+               
+
+            }
+            IEnumerable<string> sapxep = ds.OrderBy(abc => abc[42]);
+            textBox1.Text = String.Join(Environment.NewLine, sapxep);
+            taodata.Close();
+            mofile.Close();
+        }
+        public void xuatfile()
+        {
+            StreamWriter intxt = new StreamWriter("D:\\Desktop\\project1\\HSKem.txt", false);
+            //true = ghi tiep vao file, false = ghi de le du lieu cu
+            intxt.WriteLine(textBox1.Text);
+            MessageBox.Show("Đã Xuất");
+        }
+        private void btnXuat_Click(object sender, EventArgs e)
+        {
+            xuatfile();
+        }
+    }
+}
