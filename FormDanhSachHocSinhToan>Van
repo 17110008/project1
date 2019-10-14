@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Project1
+{
+    public partial class FormHocSinh : Form
+    {
+        LinkedList<string> ds = new LinkedList<string>();
+        public FormHocSinh()
+        {
+            InitializeComponent();
+            docfile();
+        }
+        public void docfile()
+        {
+            string filetxt = "D:\\Desktop\\project1\\DanhSach.txt";
+            FileStream mofile = new FileStream(filetxt, FileMode.Open, FileAccess.Read);
+            StreamReader taodata = new StreamReader(mofile);
+            taodata.BaseStream.Seek(365, SeekOrigin.Begin);
+            string filetxt1 = "D:\\Desktop\\project1\\Diem.txt";
+            FileStream mofile1 = new FileStream(filetxt1, FileMode.Open, FileAccess.Read);
+            StreamReader taodata1 = new StreamReader(mofile1);
+            taodata1.BaseStream.Seek(272, SeekOrigin.Begin);
+            string str;
+            string str1;
+            while ((str = taodata.ReadLine()) != null && (str1 = taodata1.ReadLine())!=null )
+            {
+                
+                var a = str.Replace(" 0 ", " Nam ");
+                var b = str.Replace(" 1 ", " Nu  ");
+                var diemt = str1.Substring(15, 20);
+                float diemtoan = float.Parse(diemt);
+                var str2 = taodata1.ReadLine();
+                var diemv = str2.Substring(15, 20);
+                float diemvan = float.Parse(diemv);
+                if (str.Contains(" 0 ") && diemtoan > diemvan)
+                {
+                    ds.AddLast(a);
+                }
+                else if (str.Contains(" 1 ") && diemtoan > diemvan)
+                {
+                    ds.AddLast(b);
+                }
+            }
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            taodata.Close();
+            mofile.Close();
+
+        }
+        public void xuatfile()
+        {
+            StreamWriter intxt = new StreamWriter("D:\\Desktop\\project1\\Toan>Van.txt", false);
+            //true = ghi tiep vao file, false = ghi de le du lieu cu
+            intxt.WriteLine(textBox1.Text);
+            MessageBox.Show("Đã Xuất");
+        }
+
+        private void btnXuat_Click(object sender, EventArgs e)
+        {
+            xuatfile();
+        }
+    }
+}
