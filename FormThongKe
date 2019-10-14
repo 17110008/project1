@@ -1,0 +1,279 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Project1
+{
+    public partial class FormThongKe : Form
+    {
+        LinkedList<string> ds = new LinkedList<string>();
+        LinkedList<string> dau = new LinkedList<string>();
+        LinkedList<string> rot = new LinkedList<string>();
+        public FormThongKe()
+        {
+            InitializeComponent();
+        }
+        public void tracuu()
+        {
+            string kethop;
+            string khoangtrang = "  ";
+            string filetxt = "D:\\Desktop\\project1\\DanhSach.txt";
+            FileStream mofile = new FileStream(filetxt, FileMode.Open, FileAccess.Read);
+            StreamReader taodata = new StreamReader(mofile);
+            taodata.BaseStream.Seek(365, SeekOrigin.Begin);
+            string str;
+            string filetxt1 = "D:\\Desktop\\project1\\Diem.txt";
+            FileStream mofile1 = new FileStream(filetxt1, FileMode.Open, FileAccess.Read);
+            StreamReader taodata1 = new StreamReader(mofile1);
+            taodata1.BaseStream.Seek(272, SeekOrigin.Begin);
+            string str1;
+            while ((str = taodata.ReadLine()) != null && (str1 = taodata1.ReadLine()) != null)
+            {
+                bool pass = false;
+                bool unpass = false;
+                string temp;
+                string ok;
+                var a = str.Replace(" 0 ", " Nam ");
+                var b = str.Replace(" 1 ", " Nu  ");
+                var c = str1.Substring(5, 20);
+                var diemtoan = str1.Substring(15, 5);
+                float diemt = float.Parse(diemtoan);
+
+                string str2 = taodata1.ReadLine();
+                var d = str2.Substring(5, 20);
+                var diemvan = str2.Substring(15, 5);
+                float diemv = float.Parse(diemvan);
+                float kq = diemt + diemv;
+                if (diemt >= 7 && diemv >= 7 && kq >= 16)
+                {
+                    pass = true;
+                    temp = kq.ToString();
+                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : Gioi";
+                }
+                else if (diemt >= 6 && diemv >= 6 && kq >= 14)
+                {
+                    pass = true;
+                    temp = kq.ToString();
+                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : Kha";
+                }
+                else if (diemt >= 4 && diemv >= 4 && kq >= 10)
+                {
+                    pass = true;
+                    temp = kq.ToString();
+                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : TB";
+
+                }
+                else
+                {
+                    unpass = true;
+                    temp = kq.ToString();
+                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : Kem";
+                }
+                if (str.Contains(" 0 ") && textBox2.Text.Trim() == "BTX" && str.Contains("BTX"))
+                {
+                    kethop = String.Concat(a, khoangtrang, c, d,  khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(a);
+                    }
+                    else if(unpass)
+                    {
+                        rot.AddLast(a);
+                    }
+                }
+                else if (str.Contains(" 1 ") && textBox2.Text.Trim() == "BTX" && str.Contains("BTX"))
+                {
+                    kethop = String.Concat(b, khoangtrang, c, d, khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(b);
+                    }
+                    else if (unpass)
+                    {
+                        rot.AddLast(b);
+                    }
+
+                }
+                else if (str.Contains(" 0 ") && textBox2.Text.Trim() == "LHP" && str.Contains("LHP"))
+                {
+                    kethop = String.Concat(a, khoangtrang, c, d, khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(a);
+                    }
+                    else if (unpass)
+                    {
+                        rot.AddLast(a);
+                    }
+
+                }
+                else if (str.Contains(" 1 ") && textBox2.Text.Trim() == "LHP" && str.Contains("LHP"))
+                {
+                    kethop = String.Concat(b, khoangtrang, c, d, khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(b);
+                    }
+                    else if (unpass)
+                    {
+                        rot.AddLast(b);
+                    }
+
+                }
+                else if (str.Contains(" 0 ") && textBox2.Text.Trim() == "LQD" && str.Contains("LQD"))
+                {
+                    kethop = String.Concat(a, khoangtrang, c, d, khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(a);
+                    }
+                    else if (unpass)
+                    {
+                        rot.AddLast(a);
+                    }
+                }
+                else if (str.Contains(" 1 ") && textBox2.Text.Trim() == "LQD" && str.Contains("LQD"))
+                {
+                    kethop = String.Concat(b, khoangtrang, c, d, khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(b);
+                    }
+                    else if (unpass)
+                    {
+                        rot.AddLast(b);
+                    }
+                }
+                else if (str.Contains(" 0 ") && textBox2.Text.Trim() == "NTH" && str.Contains("NTH"))
+                {
+                    kethop = String.Concat(a, khoangtrang, c, d, khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(a);
+                    }
+                    else if (unpass)
+                    {
+                        rot.AddLast(a);
+                    }
+                }
+                else if (str.Contains(" 1 ") && textBox2.Text.Trim() == "NTH" && str.Contains("NTH"))
+                {
+                    kethop = String.Concat(b, khoangtrang, c, d, khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(b);
+                    }
+                    else if (unpass)
+                    {
+                        rot.AddLast(b);
+                    }
+                }
+                else if (str.Contains(" 0 ") && textBox2.Text.Trim() == "NTMK" && str.Contains("NTMK"))
+                {
+                    kethop = String.Concat(a, khoangtrang, c, d, khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(a);
+                    }
+                    else if (unpass)
+                    {
+                        rot.AddLast(a);
+                    }
+                }
+                else if (str.Contains(" 1 ") && textBox2.Text.Trim() == "NTMK" && str.Contains("NTMK"))
+                {
+                    kethop = String.Concat(b, khoangtrang, c, d, khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(b);
+                    }
+                    else if (unpass)
+                    {
+                        rot.AddLast(b);
+                    }
+                }
+                else if (str.Contains(" 0 ") && textBox2.Text.Trim() == "TV" && str.Contains("TV"))
+                {
+                    kethop = String.Concat(a, khoangtrang, c, d, khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(a);
+                    }
+                    else if (unpass)
+                    {
+                        rot.AddLast(a);
+                    }
+                }
+                else if (str.Contains(" 1 ") && textBox2.Text.Trim() == "TV" && str.Contains("TV"))
+                {
+                    kethop = String.Concat(b, khoangtrang, c, d, khoangtrang, ok);
+                    ds.AddLast(kethop);
+                    if (pass)
+                    {
+                        dau.AddLast(b);
+                    }
+                    else if (unpass)
+                    {
+                        rot.AddLast(b);
+                    }
+                }
+            }
+            float one = ((float)dau.Count / ds.Count);
+            //float tiledau = one * 100;
+            float tilerot = 1- one;
+            string thongke = "Số Học Sinh Trong Trường " + textBox2.Text + " là " + ds.Count + " Đậu là " + dau.Count + " Rớt là " + rot.Count + " Tỉ lệ đậu : rớt là "+one+" : "+tilerot;
+            ds.AddLast(thongke);
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            txtPass.Text = String.Join(Environment.NewLine, dau);
+            txtUnPass.Text = String.Join(Environment.NewLine, rot);
+            taodata.Close();
+            mofile.Close();
+        }
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox1.ResetText();
+                ds.Clear();
+                dau.Clear();
+                rot.Clear();
+                textBox2.Focus();
+                tracuu();
+            }
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        public void xuatfile()
+        {
+            StreamWriter intxt = new StreamWriter("D:\\Desktop\\project1\\ThongKe.txt", false);
+            //true = ghi tiep vao file, false = ghi de le du lieu cu
+            intxt.WriteLine(textBox1.Text);
+            MessageBox.Show("Đã Xuất");
+        }
+        private void btnXuat_Click(object sender, EventArgs e)
+        {
+            xuatfile();
+        }
+    }
+}
