@@ -1,0 +1,91 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Project1
+{
+    public partial class Main : Form
+    {
+        public Main()
+        {
+            InitializeComponent();
+        }
+
+        private void danhSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DanhSach k = new DanhSach();
+            this.Hide();
+            k.ShowDialog();
+            this.Show();
+        }
+
+        private void điểmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDiem k = new FormDiem();
+            this.Hide();
+            k.ShowDialog();
+            this.Show();
+        }
+
+        private void trườngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTruong k = new FormTruong();
+            this.Hide();
+            k.ShowDialog();
+            this.Show();
+        }
+
+        private void xếpLoạiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormXepLoai k = new FormXepLoai();
+            this.Hide();
+            k.ShowDialog();
+            this.Show();
+        }
+
+        private void họcSinhToánVănToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHocSinh k = new FormHocSinh();
+            this.Hide();
+            k.ShowDialog();
+            this.Show();
+        }
+        private void dSHọcSinhKémToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHSKem k = new FormHSKem();
+            this.Hide();
+            k.ShowDialog();
+            this.Show();
+        }
+
+        private void dSHọcSinhThủKhoaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormHSThuKhoa k = new FormHSThuKhoa();
+            this.Hide();
+            k.ShowDialog();
+            this.Show();
+        }
+
+        private void thongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormThongKe k = new FormThongKe();
+            this.Hide();
+            k.ShowDialog();
+            this.Show();
+        }
+
+        private void baoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormBaoDiem k = new FormBaoDiem();
+            this.Hide();
+            k.ShowDialog();
+            this.Show();
+        }
+    }
+}
