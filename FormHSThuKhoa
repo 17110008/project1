@@ -1,0 +1,152 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Project1
+{
+    public partial class FormHSThuKhoa : Form
+    {
+        LinkedList<string> ds = new LinkedList<string>();
+        public FormHSThuKhoa()
+        {
+            InitializeComponent();
+            docfile();
+        }
+        public void docfile()
+        {
+            List<float> max = new List<float>();
+            string kethop;
+            string khoangtrang = "  ";
+            string filetxt = "D:\\Desktop\\project1\\DanhSach.txt";
+            FileStream mofile = new FileStream(filetxt, FileMode.Open, FileAccess.Read);
+            StreamReader taodata = new StreamReader(mofile);
+            taodata.BaseStream.Seek(365, SeekOrigin.Begin);
+            string str;
+            string filetxt1 = "D:\\Desktop\\project1\\Diem.txt";
+            FileStream mofile1 = new FileStream(filetxt1, FileMode.Open, FileAccess.Read);
+            StreamReader taodata1 = new StreamReader(mofile1);
+            taodata1.BaseStream.Seek(272, SeekOrigin.Begin);
+            string str1;
+            while ((str = taodata.ReadLine()) != null && (str1 = taodata1.ReadLine()) != null)
+            {
+                string temp;
+                string ok = null;
+                var a = str.Replace(" 0 ", " Nam ");
+                var b = str.Replace(" 1 ", " Nu  ");
+                var c = str1.Substring(5, 20);
+                var diemtoan = str1.Substring(15, 5);
+                float diemt = float.Parse(diemtoan);
+                string str2 = taodata1.ReadLine();
+                var d = str2.Substring(5, 20);
+                var diemvan = str2.Substring(15, 5);
+                float diemv = float.Parse(diemvan);
+                float kq = diemt + diemv;
+                if (diemt >= 7 && diemv >= 7 && kq >= 16)
+                {
+                    temp = kq.ToString();  
+                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : Gioi"; 
+                    if (str.Contains("LHP") && kq >= 19.5)
+                    {
+                        if (str.Contains(" 0 "))
+                        {
+                            kethop = String.Concat(a, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                        else
+                        {
+                            kethop = String.Concat(b, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                    }
+                    if (str.Contains("BTX") && kq == 20)
+                    {
+                        if (str.Contains(" 0 "))
+                        {
+                            kethop = String.Concat(a, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                        else
+                        {
+                            kethop = String.Concat(b, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                    }
+                    if (str.Contains("LQD") && kq == 20)
+                    {
+                        if (str.Contains(" 0 "))
+                        {
+                            kethop = String.Concat(a, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                        else
+                        {
+                            kethop = String.Concat(b, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                    }
+                    if (str.Contains("NTH") && kq >= 19)
+                    {
+                        if (str.Contains(" 0 "))
+                        {
+                            kethop = String.Concat(a, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                        else
+                        {
+                            kethop = String.Concat(b, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                    }
+                    if (str.Contains("NTMK") && kq == 20)
+                    {
+                        if (str.Contains(" 0 "))
+                        {
+                            kethop = String.Concat(a, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                        else
+                        {
+                            kethop = String.Concat(b, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                    }
+                    if (str.Contains("TV") && kq >= 17.5)
+                    {
+                        if (str.Contains(" 0 "))
+                        {
+                            kethop = String.Concat(a, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                        else
+                        {
+                            kethop = String.Concat(b, khoangtrang, c, d, ok);
+                            ds.AddLast(kethop);
+                        }
+                    }
+                }
+            }
+           // IEnumerable<string> sapxep = ds.OrderBy(abc => abc[5]);
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            taodata.Close();
+            mofile.Close();
+        }
+        public void xuatfile()
+        {
+            StreamWriter intxt = new StreamWriter("D:\\Desktop\\project1\\HSThuKhoa.txt", false);
+            //true = ghi tiep vao file, false = ghi de le du lieu cu
+            intxt.WriteLine(textBox1.Text);
+            MessageBox.Show("Đã Xuất");
+        }
+        private void btnXuat_Click(object sender, EventArgs e)
+        {
+            xuatfile();
+        }
+    }
+}
