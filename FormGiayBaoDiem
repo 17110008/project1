@@ -1,0 +1,400 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Project1
+{
+    public partial class FormBaoDiem : Form
+    {
+        LinkedList<string> ds = new LinkedList<string>();
+        public FormBaoDiem()
+        {
+            InitializeComponent();
+            docfile(); 
+        }
+        public void docfile()
+        {
+            string filetxt = "D:\\Desktop\\project1\\DanhSach.txt";
+            FileStream mofile = new FileStream(filetxt, FileMode.Open, FileAccess.Read);
+            StreamReader taodata = new StreamReader(mofile);
+            taodata.BaseStream.Seek(365, SeekOrigin.Begin);
+            string str;
+            string filetxt1 = "D:\\Desktop\\project1\\Diem.txt";
+            FileStream mofile1 = new FileStream(filetxt1, FileMode.Open, FileAccess.Read);
+            StreamReader taodata1 = new StreamReader(mofile1);
+            taodata1.BaseStream.Seek(272, SeekOrigin.Begin);
+            string str1;
+            int sbd = 11;
+            int ten = 11;
+            int t = 8; // toan
+            int math = 2; // toan
+            int v = 9; // van
+            int vv = 2; // van
+            int td = 2;
+            int td1 = 2;
+            int xl = 2;
+            int xl1 = 2;
+            while ((str = taodata.ReadLine()) != null )
+            {
+                string[] gbd = { "GIAY BAO DIEM", "SO BAO DANH: ", };
+                string xeploai;
+                string temp;
+                string ok;
+               
+                // giay bao diem
+                string dong1 = gbd[0] + "\t\t\t";
+                ds.AddLast(dong1);
+                ds.AddLast(dong1);
+                ds.AddLast(dong1);
+                // sbd
+                
+                foreach (var line in File.ReadLines(filetxt).Skip(sbd).Take(1))
+                {
+                    string line1 = gbd[1] + line.Substring(0, 4) + "\t\t";
+                    ds.AddLast(line1);
+                    sbd++;
+                }
+                foreach (var line in File.ReadLines(filetxt).Skip(sbd).Take(1))
+                {
+                    string line1 = gbd[1] + line.Substring(0, 4)+ "\t\t";
+                    ds.AddLast(line1);
+                    sbd++;
+                }
+                foreach (var line in File.ReadLines(filetxt).Skip(sbd).Take(1))
+                {
+                    string line1 = gbd[1] + line.Substring(0, 4)+ "\t\t";
+                    ds.AddLast(line1);
+                    sbd++;
+                }
+                // ten
+                if (str.Contains(" 0 "))
+                {
+                    foreach (var line in File.ReadLines(filetxt).Skip(ten).Take(1))
+                    {
+                        string line1 = "Anh: " + line.Substring(5, 21) + "\t";
+                        ds.AddLast(line1);
+                        ten++;
+                    }
+                    foreach (var line in File.ReadLines(filetxt).Skip(ten).Take(1))
+                    {
+                        string line1 = "Anh: " + line.Substring(5, 21) + "\t";
+                        ds.AddLast(line1);
+                        ten++;
+                    }
+                    foreach (var line in File.ReadLines(filetxt).Skip(ten).Take(1))
+                    {
+                        string line1 = "Anh: " + line.Substring(5, 21) + "\t";
+                        ds.AddLast(line1);
+                        ten++;
+                    }
+
+                }
+                else
+                {
+                    foreach (var line in File.ReadLines(filetxt).Skip(ten).Take(1))
+                    {
+                        string line1 = "Chi: " + line.Substring(5, 21) + "\t";
+                        ds.AddLast(line1);
+                        ten++;
+                    }
+                    foreach (var line in File.ReadLines(filetxt).Skip(ten).Take(1))
+                    {
+                        string line1 = "Chi: " + line.Substring(5, 21) + "\t";
+                        ds.AddLast(line1);
+                        ten++;
+                    }
+                    foreach (var line in File.ReadLines(filetxt).Skip(ten).Take(1))
+                    {
+                        string line1 = "Chi " + line.Substring(5, 21) + "\t";
+                        ds.AddLast(line1);
+                        ten++;
+                    }
+                }
+                // toan
+                foreach (var line in File.ReadLines(filetxt1).Skip(t).Take(1))
+                {
+                    string line1 = line.Substring(5,20) +"\t\t";
+                    ds.AddLast(line1);
+                }
+                foreach (var line in File.ReadLines(filetxt1).Skip(t+math).Take(1))
+                {
+                    string line1 = line.Substring(5, 20) + "\t\t";
+                    ds.AddLast(line1);
+                   // math = math + 2;
+                }
+                foreach(var line in File.ReadLines(filetxt1).Skip(t+ math + 2).Take(1))
+                {
+                    string line1 = line.Substring(5, 20) + "\t\t";
+                    ds.AddLast(line1);
+                    //math = math + 2;
+                }
+                // van
+                foreach (var line in File.ReadLines(filetxt1).Skip(v).Take(1))
+                {
+                    string line1 = line.Substring(5,20)+"\t\t";
+                    ds.AddLast(line1);
+                }
+                foreach (var line in File.ReadLines(filetxt1).Skip(v + vv).Take(1))
+                {
+                    string line1 = line.Substring(5, 20) + "\t\t";
+                    ds.AddLast(line1);
+                  // vv = vv + 2;
+                }
+                foreach (var line in File.ReadLines(filetxt1).Skip(v + vv + 2).Take(1))
+                {
+                    string line1 = line.Substring(5, 20) + "\t\t";
+                    ds.AddLast(line1);
+                    //vv = vv + 2;
+                }
+                //tong diem
+                float diemt;
+                float diemv;
+                foreach (var line in File.ReadLines(filetxt1).Skip(t).Take(1))
+                {
+                    string line1 = line.Substring(15, 5) + "\t\t";
+                    diemt = float.Parse(line1);
+                    foreach (string lines in File.ReadLines(filetxt1).Skip(v).Take(1))
+                    {
+                        string lines1 = lines.Substring(15, 5) + "\t\t";
+                        diemv = float.Parse(lines1);
+                        float tongdiem = diemt + diemv;
+                        if (diemt >= 7 && diemv >= 7 && tongdiem >= 16)
+                        {
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 6 && diemv >= 6 && tongdiem >= 14)
+                        {
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 4 && diemv >= 4 && tongdiem >= 10)
+                        {
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else
+                        {
+
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+
+                    }
+                }
+                foreach (var line in File.ReadLines(filetxt1).Skip(t + td).Take(1))
+                {
+                    string line1 = line.Substring(15, 5) + "\t\t";
+                    diemt = float.Parse(line1);
+                   // td =td + 2;
+                    foreach (string lines in File.ReadLines(filetxt1).Skip(v + td1).Take(1))
+                    {
+                        string lines1 = lines.Substring(15, 5) + "\t\t";
+                        diemv = float.Parse(lines1);
+                        float tongdiem = diemt + diemv;
+                        if (diemt >= 7 && diemv >= 7 && tongdiem >= 16)
+                        {
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 6 && diemv >= 6 && tongdiem >= 14)
+                        {
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 4 && diemv >= 4 && tongdiem >= 10)
+                        {
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else
+                        {
+
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+                       // td1 = td1 + 2;
+                    }
+                }
+                foreach (var line in File.ReadLines(filetxt1).Skip(t + td + 2 ).Take(1))
+                {
+                    string line1 = line.Substring(15, 5) + "\t\t";
+                    diemt = float.Parse(line1);
+                 //   td = td + 2;
+                    foreach (string lines in File.ReadLines(filetxt1).Skip(v + td1 + 2).Take(1))
+                    {
+                        string lines1 = lines.Substring(15, 5) + "\t\t";
+                        diemv = float.Parse(lines1);
+                        float tongdiem = diemt + diemv;
+                        if (diemt >= 7 && diemv >= 7 && tongdiem >= 16)
+                        {
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 6 && diemv >= 6 && tongdiem >= 14)
+                        {
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 4 && diemv >= 4 && tongdiem >= 10)
+                        {
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else
+                        {
+
+                            temp = tongdiem.ToString();
+                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ds.AddLast(ok);
+                        }
+                      //  td1 = td1 + 2;
+                    }
+                }
+                // xep loai
+                foreach (var line in File.ReadLines(filetxt1).Skip(t).Take(1))
+                {
+                    string line1 = line.Substring(15, 5) + "\t\t";
+                    diemt = float.Parse(line1);
+                    foreach (string lines in File.ReadLines(filetxt1).Skip(v).Take(1))
+                    {
+                        string lines1 = lines.Substring(15, 5) + "\t\t";
+                        diemv = float.Parse(lines1);
+                        float tongdiem = diemt + diemv;
+                        if (diemt >= 7 && diemv >= 7 && tongdiem >= 16)
+                        {
+                            ok = "Xep Loai : Gioi\t\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 6 && diemv >= 6 && tongdiem >= 14)
+                        {
+                            ok = "Xep Loai : Kha\t\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 4 && diemv >= 4 && tongdiem >= 10)
+                        {
+                            ok = "Xep Loai : TB\t\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else
+                        {
+
+                            ok = "Xep Loai : Kem\t\t\t";
+                            ds.AddLast(ok);
+                        }
+
+                    }
+                }
+                foreach (var line in File.ReadLines(filetxt1).Skip(t + xl).Take(1))
+                {
+                    string line1 = line.Substring(15, 5) + "\t\t";
+                    diemt = float.Parse(line1);
+                   // xl = xl + 2;
+                    foreach (string lines in File.ReadLines(filetxt1).Skip(v + xl1).Take(1))
+                    {
+                        string lines1 = lines.Substring(15, 5) + "\t\t";
+                        diemv = float.Parse(lines1);
+                        float tongdiem = diemt + diemv;
+                        if (diemt >= 7 && diemv >= 7 && tongdiem >= 16)
+                        {
+                            ok = "Xep Loai : Gioi\t\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 6 && diemv >= 6 && tongdiem >= 14)
+                        {
+                            ok = "Xep Loai : Kha\t\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 4 && diemv >= 4 && tongdiem >= 10)
+                        {
+                            ok = "Xep Loai : TB\t\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else
+                        {
+
+                            ok = "Xep Loai : Kem\t\t\t";
+                            ds.AddLast(ok);
+                        }
+                     //   xl1 = xl1 + 2;
+                    }
+                }
+                foreach (var line in File.ReadLines(filetxt1).Skip(t + xl).Take(1))
+                {
+                    string line1 = line.Substring(15, 5) + "\t\t";
+                    diemt = float.Parse(line1);
+                    //xl = xl + 2;
+                    foreach (string lines in File.ReadLines(filetxt1).Skip(v + xl1).Take(1))
+                    {
+                        string lines1 = lines.Substring(15, 5) + "\t\t";
+                        diemv = float.Parse(lines1);
+                        float tongdiem = diemt + diemv;
+                        if (diemt >= 7 && diemv >= 7 && tongdiem >= 16)
+                        {
+                            ok = "Xep Loai : Gioi\t\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 6 && diemv >= 6 && tongdiem >= 14)
+                        {
+                            ok = "Xep Loai : Kha\t\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else if (diemt >= 4 && diemv >= 4 && tongdiem >= 10)
+                        {
+                            ok = "Xep Loai : TB\t\t\t";
+                            ds.AddLast(ok);
+                        }
+                        else
+                        {
+
+                            ok = "Xep Loai : Kem\t\t\t";
+                            ds.AddLast(ok);
+                        }
+                      //  xl1 = xl1 + 2;
+                    }
+                }
+                t = t + 6;
+                v = v + 6;
+            }
+            for (int i = 0; i < 327; i++)
+            {
+                ds.RemoveLast();
+            }
+            textBox1.Text = String.Join("", ds);
+            taodata.Close();
+            mofile.Close();
+        }
+      
+        public void xuatfile()
+        {
+            StreamWriter intxt = new StreamWriter("D:\\Desktop\\project1\\GiayBaoDiem.txt", false);
+            //true = ghi tiep vao file, false = ghi de le du lieu cu
+            intxt.WriteLine(textBox1.Text);
+            MessageBox.Show("Đã Xuất");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            xuatfile();
+        }
+    }
+}
