@@ -165,7 +165,7 @@ namespace Project1
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            docfile();
+            textBox1.Text = String.Join(Environment.NewLine, ds);
             txtConTro.ResetText();
             txtConTro.Focus();
         }
