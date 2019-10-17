@@ -1,12 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project1
@@ -59,6 +54,8 @@ namespace Project1
 
         private void Addsau_Click(object sender, EventArgs e)
         {
+            txtaddMaTruong.MaxLength = 5;
+            txtaddMaTruong.Text = txtaddMaTruong.Text.PadRight(txtaddMaTruong.MaxLength, ' ');
             LinkedListNode<string> node = ds.First;
 
             while (node != null)
@@ -68,7 +65,7 @@ namespace Project1
                 {
                     var them = node;
                     node = node.Next;
-                    ds.AddAfter(them, txtaddMaTruong.Text.Trim() + "  " + txtTenTruong.Text.Trim());
+                    ds.AddAfter(them, txtaddMaTruong.Text + txtTenTruong.Text.Trim());
                 }
                 else
                 {
@@ -81,6 +78,8 @@ namespace Project1
 
         private void btnAddtrc_Click(object sender, EventArgs e)
         {
+            txtaddMaTruong.MaxLength = 5;
+            txtaddMaTruong.Text = txtaddMaTruong.Text.PadRight(txtaddMaTruong.MaxLength, ' ');
             LinkedListNode<string> node = ds.First;
 
             while (node != null)
@@ -90,7 +89,7 @@ namespace Project1
                 {
                     var them = node;
                     node = node.Next;
-                    ds.AddBefore(them, txtaddMaTruong.Text.Trim() + "  " + txtTenTruong.Text.Trim());
+                    ds.AddBefore(them, txtaddMaTruong.Text + txtTenTruong.Text.Trim());
                 }
                 else
                 {
@@ -124,14 +123,18 @@ namespace Project1
 
         private void btnAddFirst_Click(object sender, EventArgs e)
         {
-            ds.AddFirst(txtaddMaTruong.Text.Trim() + "  " + txtTenTruong.Text.Trim());
+            txtaddMaTruong.MaxLength = 5;
+            txtaddMaTruong.Text = txtaddMaTruong.Text.PadRight(txtaddMaTruong.MaxLength, ' ');
+            ds.AddFirst(txtaddMaTruong.Text + txtTenTruong.Text.Trim());
             textBox1.Text = String.Join(Environment.NewLine, ds);
             textBox2.Text = "Tong la " + ds.Count;
         }
 
         private void btnAddlast_Click(object sender, EventArgs e)
         {
-            ds.AddLast(txtaddMaTruong.Text.Trim() + "  " + txtTenTruong.Text.Trim());
+            txtaddMaTruong.MaxLength = 5;
+            txtaddMaTruong.Text = txtaddMaTruong.Text.PadRight(txtaddMaTruong.MaxLength, ' ');
+            ds.AddLast(txtaddMaTruong.Text + txtTenTruong.Text.Trim());
             textBox1.Text = String.Join(Environment.NewLine, ds);
             textBox2.Text = "Tong la " + ds.Count;
         }
