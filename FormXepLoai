@@ -1,144 +1,169 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project1
 {
-    public partial class FormXepLoai : Form
+    public partial class FormTruong : Form
     {
-        LinkedList<string>  ds = new LinkedList<string>();
-        public FormXepLoai()
+        LinkedList<string> ds = new LinkedList<string>();
+        public FormTruong()
         {
             InitializeComponent();
             docfile();
-
         }
-        
         public void docfile()
         {
-            
-            string kethop;
-            string khoangtrang = "  ";
-            string filetxt = "D:\\Desktop\\project1\\DanhSach.txt";
+            string filetxt = "D:\\Desktop\\project1\\Truong.txt";
             FileStream mofile = new FileStream(filetxt, FileMode.Open, FileAccess.Read);
             StreamReader taodata = new StreamReader(mofile);
-            taodata.BaseStream.Seek(365, SeekOrigin.Begin);
+            taodata.BaseStream.Seek(242, SeekOrigin.Begin);
             string str;
-            string filetxt1 = "D:\\Desktop\\project1\\Diem.txt";
-            FileStream mofile1 = new FileStream(filetxt1, FileMode.Open, FileAccess.Read);
-            StreamReader taodata1 = new StreamReader(mofile1);
-            taodata1.BaseStream.Seek(272, SeekOrigin.Begin);
-            string str1;
-            string dtn = null;
-            while ((str = taodata.ReadLine()) != null && (str1 = taodata1.ReadLine())!= null)
+            while ((str = taodata.ReadLine()) != null)
             {
-               
-                string temp;
-                string ok;
-                var a = str.Replace(" 0 ", " Nam ");
-                var b = str.Replace(" 1 ", " Nu  ");
-                var c = str1.Substring(5, 20);
-                var diemtoan = str1.Substring(15,5);
-                float diemt = float.Parse(diemtoan);
-
-                string str2 = taodata1.ReadLine();
-                var d = str2.Substring(5, 20);
-                var diemvan = str2.Substring(15, 5);
-                float diemv = float.Parse(diemvan);
-                float kq = diemt + diemv;
-                if (diemt >= 7 && diemv >= 7 && kq >= 16)
-                {
-                    if (diemt < diemv)
-                    {
-                        dtn = "   Mon Thap Nhat La Toan";
-                    }
-                    else
-                    {
-                        dtn = "   Mon Thap Nhat La Van";
-                    }
-                    temp = kq.ToString();
-                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : Gioi";
-                }
-                else if (diemt >= 6 && diemv >= 6 && kq >= 14)
-                {
-                    if (diemt < diemv)
-                    {
-                        dtn = "   Mon Thap Nhat La Toan";
-                    }
-                    else
-                    {
-                        dtn = "   Mon Thap Nhat La Van";
-                    }
-                    temp = kq.ToString();
-                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : Kha";
-                }
-                else if (diemt >= 4 && diemv >= 4 && kq >= 10)
-                {
-                    if (diemt < diemv)
-                    {
-                        dtn = "   Mon Thap Nhat La Toan";
-                    }
-                    else
-                    {
-                        dtn = "   Mon Thap Nhat La Van";
-                    }
-                    temp = kq.ToString();
-                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : TB";
-               
-                }
-                else
-                {
-                    if (diemt < diemv)
-                    {
-                        dtn = "   Mon Thap Nhat La Toan";
-                    }
-                    else
-                    {
-                        dtn = "   Mon Thap Nhat La Van";
-                    }
-                    temp = kq.ToString();
-                    ok = " Tong Diem La " + temp + " ->" + " Xep Loai : Kem";
-
-                }
-               
-                
-                if (str.Contains(" 0 "))
-                {
-                    kethop = String.Concat( a,khoangtrang,c, d,dtn,khoangtrang, ok);
-                    ds.AddLast(kethop);
-                   
-                }
-                else
-                {
-                    kethop = String.Concat( b,khoangtrang , c, d,dtn,khoangtrang, ok);
-                    ds.AddLast(kethop);
-                  
-                }
+                ds.AddLast(str);
             }
-            IEnumerable<string> sapxep = ds.OrderBy(abc => abc[42]);
-            textBox1.Text = String.Join(Environment.NewLine, sapxep);
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
             taodata.Close();
             mofile.Close();
+            
         }
         public void xuatfile()
         {
-            StreamWriter intxt = new StreamWriter("D:\\Desktop\\project1\\XepLoai.txt", false);
+            StreamWriter intxt = new StreamWriter("D:\\Desktop\\project1\\outputtruong.txt", false);
             //true = ghi tiep vao file, false = ghi de le du lieu cu
             intxt.WriteLine(textBox1.Text);
             MessageBox.Show("Đã Xuất");
         }
 
-        private void btnXuat_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             xuatfile();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string[] lines = this.textBox1.Lines;
+            int dongso = 3;
+            var newlines = lines.Skip(dongso);
+            this.textBox1.Lines = newlines.ToArray();
+        }
+
+        private void Addsau_Click(object sender, EventArgs e)
+        {
+            txtaddMaTruong.MaxLength = 5;
+            txtaddMaTruong.Text = txtaddMaTruong.Text.PadRight(txtaddMaTruong.MaxLength, ' ');
+            LinkedListNode<string> node = ds.First;
+
+            while (node != null)
+            {
+
+                if (node.Value.Contains(txtConTro.Text))
+                {
+                    var them = node;
+                    node = node.Next;
+                    ds.AddAfter(them, txtaddMaTruong.Text + txtTenTruong.Text.Trim());
+                }
+                else
+                {
+                    node = node.Next;
+                }
+            }
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
+        }
+
+        private void btnAddtrc_Click(object sender, EventArgs e)
+        {
+            txtaddMaTruong.MaxLength = 5;
+            txtaddMaTruong.Text = txtaddMaTruong.Text.PadRight(txtaddMaTruong.MaxLength, ' ');
+            LinkedListNode<string> node = ds.First;
+
+            while (node != null)
+            {
+
+                if (node.Value.Contains(txtConTro.Text))
+                {
+                    var them = node;
+                    node = node.Next;
+                    ds.AddBefore(them, txtaddMaTruong.Text + txtTenTruong.Text.Trim());
+                }
+                else
+                {
+                    node = node.Next;
+                }
+            }
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            LinkedListNode<string> node = ds.First;
+
+            while (node != null)
+            {
+                if (node.Value.Contains(txtXoa.Text))
+                {
+                    var xoa = node;
+                    node = node.Next;
+                    ds.Remove(xoa);
+                }
+                else
+                {
+                    node = node.Next;
+                }
+            }
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
+        }
+
+        private void btnAddFirst_Click(object sender, EventArgs e)
+        {
+            txtaddMaTruong.MaxLength = 5;
+            txtaddMaTruong.Text = txtaddMaTruong.Text.PadRight(txtaddMaTruong.MaxLength, ' ');
+            ds.AddFirst(txtaddMaTruong.Text + txtTenTruong.Text.Trim());
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
+        }
+
+        private void btnAddlast_Click(object sender, EventArgs e)
+        {
+            txtaddMaTruong.MaxLength = 5;
+            txtaddMaTruong.Text = txtaddMaTruong.Text.PadRight(txtaddMaTruong.MaxLength, ' ');
+            ds.AddLast(txtaddMaTruong.Text + txtTenTruong.Text.Trim());
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            textBox2.Text = "Tong la " + ds.Count;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LinkedListNode<string> node = ds.First;
+
+            while (node != null)
+            {
+                if (node.Value.Contains(txtConTro.Text))
+                {
+                    var timkiem = node;
+                    node = node.Next;
+                    textBox1.Text = String.Join(Environment.NewLine, timkiem.Value);
+                }
+                else
+                {
+                    node = node.Next;
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = String.Join(Environment.NewLine, ds);
+            txtConTro.ResetText();
+            txtConTro.Focus();
+        }
     }
 }
+
