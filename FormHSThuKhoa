@@ -1,12 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project1
@@ -132,7 +126,6 @@ namespace Project1
                     }
                 }
             }
-           // IEnumerable<string> sapxep = ds.OrderBy(abc => abc[5]);
             textBox1.Text = String.Join(Environment.NewLine, ds);
             taodata.Close();
             mofile.Close();
