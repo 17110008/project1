@@ -38,16 +38,17 @@ namespace Project1
             int xl1 = 2;
             while ((str = taodata.ReadLine()) != null )
             {
-                string[] gbd = { "GIAY BAO DIEM", "SO BAO DANH: ", };
+                string[] gbd = { "GIAY BAO DIEM", "SO BAO DANH: ","GIAY BAO DIEM \r\n" };
                 string xeploai;
                 string temp;
                 string ok;
                
                 // giay bao diem
                 string dong1 = gbd[0] + "\t\t\t";
+                string dong1plus = gbd[2];
                 ds.AddLast(dong1);
                 ds.AddLast(dong1);
-                ds.AddLast(dong1);
+                ds.AddLast(dong1plus);
                 // sbd
                 
                 foreach (var line in File.ReadLines(filetxt).Skip(sbd).Take(1))
@@ -64,7 +65,7 @@ namespace Project1
                 }
                 foreach (var line in File.ReadLines(filetxt).Skip(sbd).Take(1))
                 {
-                    string line1 = gbd[1] + line.Substring(0, 4)+ "\t\t";
+                    string line1 = gbd[1] + line.Substring(0, 4)+ "\t\t\r\n";
                     ds.AddLast(line1);
                     sbd++;
                 }
@@ -85,7 +86,7 @@ namespace Project1
                     }
                     foreach (var line in File.ReadLines(filetxt).Skip(ten).Take(1))
                     {
-                        string line1 = "Anh: " + line.Substring(5, 21) + "\t";
+                        string line1 = "Anh: " + line.Substring(5, 21) + "\t\r\n";
                         ds.AddLast(line1);
                         ten++;
                     }
@@ -107,7 +108,7 @@ namespace Project1
                     }
                     foreach (var line in File.ReadLines(filetxt).Skip(ten).Take(1))
                     {
-                        string line1 = "Chi " + line.Substring(5, 21) + "\t";
+                        string line1 = "Chi " + line.Substring(5, 21) + "\t\r\n";
                         ds.AddLast(line1);
                         ten++;
                     }
@@ -126,7 +127,7 @@ namespace Project1
                 }
                 foreach(var line in File.ReadLines(filetxt1).Skip(t+ math + 2).Take(1))
                 {
-                    string line1 = line.Substring(5, 20) + "\t\t";
+                    string line1 = line.Substring(5, 20) + "\t\t\r\n";
                     ds.AddLast(line1);
                     //math = math + 2;
                 }
@@ -144,7 +145,7 @@ namespace Project1
                 }
                 foreach (var line in File.ReadLines(filetxt1).Skip(v + vv + 2).Take(1))
                 {
-                    string line1 = line.Substring(5, 20) + "\t\t";
+                    string line1 = line.Substring(5, 20) + "\t\t\r\n";
                     ds.AddLast(line1);
                     //vv = vv + 2;
                 }
@@ -239,26 +240,26 @@ namespace Project1
                         if (diemt >= 7 && diemv >= 7 && tongdiem >= 16)
                         {
                             temp = tongdiem.ToString();
-                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ok = "Tong Diem La : " + temp + "\t\t\r\n";
                             ds.AddLast(ok);
                         }
                         else if (diemt >= 6 && diemv >= 6 && tongdiem >= 14)
                         {
                             temp = tongdiem.ToString();
-                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ok = "Tong Diem La : " + temp + "\t\t\r\n";
                             ds.AddLast(ok);
                         }
                         else if (diemt >= 4 && diemv >= 4 && tongdiem >= 10)
                         {
                             temp = tongdiem.ToString();
-                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ok = "Tong Diem La : " + temp + "\t\t\r\n";
                             ds.AddLast(ok);
                         }
                         else
                         {
 
                             temp = tongdiem.ToString();
-                            ok = "Tong Diem La : " + temp + "\t\t";
+                            ok = "Tong Diem La : " + temp + "\t\t\r\n";
                             ds.AddLast(ok);
                         }
                       //  td1 = td1 + 2;
@@ -344,23 +345,23 @@ namespace Project1
                         float tongdiem = diemt + diemv;
                         if (diemt >= 7 && diemv >= 7 && tongdiem >= 16)
                         {
-                            ok = "Xep Loai : Gioi\t\t\t";
+                            ok = "Xep Loai : Gioi\t\t\t\r\n";
                             ds.AddLast(ok);
                         }
                         else if (diemt >= 6 && diemv >= 6 && tongdiem >= 14)
                         {
-                            ok = "Xep Loai : Kha\t\t\t";
+                            ok = "Xep Loai : Kha\t\t\t\r\n";
                             ds.AddLast(ok);
                         }
                         else if (diemt >= 4 && diemv >= 4 && tongdiem >= 10)
                         {
-                            ok = "Xep Loai : TB\t\t\t";
+                            ok = "Xep Loai : TB\t\t\t\r\n";
                             ds.AddLast(ok);
                         }
                         else
                         {
 
-                            ok = "Xep Loai : Kem\t\t\t";
+                            ok = "Xep Loai : Kem\t\t\t\r\n";
                             ds.AddLast(ok);
                         }
                       //  xl1 = xl1 + 2;
