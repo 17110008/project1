@@ -132,7 +132,7 @@ namespace Project1
         }
         public void xuatfile()
         {
-            StreamWriter intxt = new StreamWriter("D:\\Desktop\\project1\\HSThuKhoa.txt", false);
+            StreamWriter intxt = new StreamWriter("D:\\Desktop\\project1\\outputThuKhoa.txt", false);
             //true = ghi tiep vao file, false = ghi de le du lieu cu
             intxt.WriteLine(textBox1.Text);
             MessageBox.Show("Đã Xuất");
