@@ -1,0 +1,9 @@
+0209 Tran Thi       Loan   Nu  25/11/1983 BTX   Toan      4.50      Van       4.00       Tong Diem La 8.5 -> Xep Loai : Kem
+0008 Tran Thanh     Phong  Nam 21/03/1983 LHP   Toan      4.00      Van       5.00       Tong Diem La 9 -> Xep Loai : Kem
+0019 Nguyen Kim     Toan   Nu  07/07/1984 LHP   Toan      4.50      Van       4.50       Tong Diem La 9 -> Xep Loai : Kem
+0049 Ma Thi Hong    Xuan   Nu  19/10/1983 LHP   Toan      4.00      Van       4.50       Tong Diem La 8.5 -> Xep Loai : Kem
+0247 Le Trung       Tinh   Nam 31/12/1982 LQD   Toan      4.00      Van       5.50       Tong Diem La 9.5 -> Xep Loai : Kem
+0054 Do Van         Thanh  Nam 08/11/1983 NTH   Toan      4.50      Van       4.50       Tong Diem La 9 -> Xep Loai : Kem
+0060 Nguyen Truong  Son    Nam 05/08/1984 NTH   Toan      2.50      Van       6.00       Tong Diem La 8.5 -> Xep Loai : Kem
+0160 Dinh Minh      Hien   Nu  31/10/1983 NTMK  Toan      1.50      Van       4.00       Tong Diem La 5.5 -> Xep Loai : Kem
+0359 Nguyen Thi     Thuy   Nu 
