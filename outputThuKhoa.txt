@@ -1,0 +1,7 @@
+0038 Le Bich        Phuong Nu  24/07/1983 LHP   Toan      10.00     Van       9.50       Tong Diem La 19.5 -> Xep Loai : Gioi
+0136 Huynh Kim      Ngan   Nu  22/12/1983 NTMK  Toan      10.00     Van       10.00      Tong Diem La 20 -> Xep Loai : Gioi
+0210 Huynh Thi      Cua    Nu  02/09/1983 BTX   Toan      10.00     Van       10.00      Tong Diem La 20 -> Xep Loai : Gioi
+0232 NGuyen Thu     Van    Nu  16/09/1984 LQD   Toan      10.00     Van       10.00      Tong Diem La 20 -> Xep Loai : Gioi
+0487 Le Kim         Loan   Nu  07/11/1983 NTH   Toan      10.00     Van       9.00       Tong Diem La 19 -> Xep Loai : Gioi
+0682 Dang Minh      Quan   Nam 17/02/1984 BTX   Toan      10.00     Van       10.00      Tong Diem La 20 -> Xep Loai : Gioi
+0899 Hoang Thi      Loan   Nu  23/02/1983 TV    Toan      8.50      Van       9.00       Tong Diem La 17.5 -> Xep Loai : Gioi
