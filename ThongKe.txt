@@ -1,0 +1,25 @@
+0001 Nguyen Viet    Hong   Nam 04/04/1983 LHP   Toan      8.50      Van       6.00         Tong Diem La 14.5 -> Xep Loai : Kha
+0002 Tran Van       Minh   Nam 17/04/1984 LHP   Toan      9.00      Van       7.50         Tong Diem La 16.5 -> Xep Loai : Gioi
+0008 Tran Thanh     Phong  Nam 21/03/1983 LHP   Toan      4.00      Van       5.00         Tong Diem La 9 -> Xep Loai : Kem
+0013 Nguyen Minh    Quang  Nam 10/07/1984 LHP   Toan      8.00      Van       5.00         Tong Diem La 13 -> Xep Loai : TB
+0014 Trang Phi      Hung   Nam 02/11/1984 LHP   Toan      8.50      Van       6.00         Tong Diem La 14.5 -> Xep Loai : Kha
+0019 Nguyen Kim     Toan   Nu  07/07/1984 LHP   Toan      4.50      Van       4.50         Tong Diem La 9 -> Xep Loai : Kem
+0020 Nguyen Bich    Lien   Nu  27/05/1984 LHP   Toan      10.00     Van       8.50         Tong Diem La 18.5 -> Xep Loai : Gioi
+0026 Doan Duc       Chi    Nam 25/10/1983 LHP   Toan      4.00      Van       6.00         Tong Diem La 10 -> Xep Loai : TB
+0037 Tran           Khiem  Nam 04/12/1983 LHP   Toan      7.00      Van       6.50         Tong Diem La 13.5 -> Xep Loai : TB
+0038 Le Bich        Phuong Nu  24/07/1983 LHP   Toan      10.00     Van       9.50         Tong Diem La 19.5 -> Xep Loai : Gioi
+0043 Pham Hoai      Bong   Nam 11/10/1982 LHP   Toan      9.00      Van       8.00         Tong Diem La 17 -> Xep Loai : Gioi
+0044 Vu Thi My      Linh   Nu  22/06/1983 LHP   Toan      6.00      Van       8.00         Tong Diem La 14 -> Xep Loai : Kha
+0049 Ma Thi Hong    Xuan   Nu  19/10/1983 LHP   Toan      4.00      Van       4.50         Tong Diem La 8.5 -> Xep Loai : Kem
+0376 Nguyen Manh    Tien   Nam 15/12/1983 LHP   Toan      7.50      Van       8.00         Tong Diem La 15.5 -> Xep Loai : Kha
+0381 Nguyen Van     Tam    Nam 02/07/1984 LHP   Toan      6.50      Van       8.50         Tong Diem La 15 -> Xep Loai : Kha
+0382 Tran Thuy      Dao    Nu  17/11/1983 LHP   Toan      6.50      Van       8.50         Tong Diem La 15 -> Xep Loai : Kha
+0399 Phan Kim       Nga    Nu  24/08/1984 LHP   Toan      6.50      Van       7.00         Tong Diem La 13.5 -> Xep Loai : TB
+0405 Chung Thanh    Kim    Nam 30/09/1983 LHP   Toan      7.00      Van       7.00         Tong Diem La 14 -> Xep Loai : Kha
+0411 Nguyen Van     Dung   Nam 17/12/1983 LHP   Toan      5.50      Van       5.00         Tong Diem La 10.5 -> Xep Loai : TB
+0412 Vo Thanh       Giang  Nam 10/07/1984 LHP   Toan      8.50      Van       7.50         Tong Diem La 16 -> Xep Loai : Gioi
+0417 Nguyen Hong    Nga    Nu  22/03/1984 LHP   Toan      7.00      Van       6.50         Tong Diem La 13.5 -> Xep Loai : TB
+0429 Chau Viet      Luan   Nam 07/09/1983 LHP   Toan      7.00      Van       7.50         Tong Diem La 14.5 -> Xep Loai : Kha
+0435 Le Thanh       Tung   Nam 26/10/1983 LHP   Toan      6.50      Van       7.50         Tong Diem La 14 -> Xep Loai : Kha
+0436 Nguyen Quoc    Phong  Nam 04/01/1983 LHP   Toan      7.50      Van       7.00         Tong Diem La 14.5 -> Xep Loai : Kha
+0441 Tran Kieu      Au    
