@@ -1,0 +1,13 @@
+MYDATABASE
+Comment So Luong Field: 2, So Luong Mau Tin: 6
+Comment Ten Field Start Width DatType: I: SoNguyen, C: Char, F: So thuc, B: Bool, D: Ngay
+2
+MaTruong         1          5      C
+TenTruong        6         40      C
+6         
+BTX  Truong PTTH Bui Thi Xuan                
+LHP  Truong PTTH Chuyen Le Hong Phong        
+LQD  Truong PTTH Le Quy Don                  
+NTH  Truong PTTH Nguyen Thuong Hien          
+NTMK Truong PTTH Nguyen Thi Minh Khai        
+TV   Truong PTTH Truong Vuong                

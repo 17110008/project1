@@ -1,0 +1,175 @@
+MYDATABASE
+Comment So Luong Field: 6, So Luong Mau Tin: 164
+Comment Ten Field Start Width DatType: I: SoNguyen, C: Char, F: So thuc, B: Bool, D: Ngay
+6
+MaHS           1       5      C     
+Ho             6      15      C
+Ten           21       7      C
+Phai          28       2      B 
+NgaySinh      30      11      D
+MaTruong      41       4      C
+164
+0001 Nguyen Viet    Hong   0 04/04/1983 LHP 
+0002 Tran Van       Minh   0 17/04/1984 LHP 
+0008 Tran Thanh     Phong  0 21/03/1983 LHP 
+0013 Nguyen Minh    Quang  0 10/07/1984 LHP 
+0014 Trang Phi      Hung   0 02/11/1984 LHP 
+0019 Nguyen Kim     Toan   1 07/07/1984 LHP 
+0020 Nguyen Bich    Lien   1 27/05/1984 LHP 
+0026 Doan Duc       Chi    0 25/10/1983 LHP 
+0037 Tran           Khiem  0 04/12/1983 LHP 
+0038 Le Bich        Phuong 1 24/07/1983 LHP 
+0043 Pham Hoai      Bong   0 11/10/1982 LHP 
+0044 Vu Thi My      Linh   1 22/06/1983 LHP 
+0049 Ma Thi Hong    Xuan   1 19/10/1983 LHP 
+0053 Luong Khai     Truyen 0 10/12/1983 NTH 
+0054 Do Van         Thanh  0 08/11/1983 NTH 
+0059 Nguyen Thanh   Thu    0 09/05/1984 NTH 
+0060 Nguyen Truong  Son    0 05/08/1984 NTH 
+0136 Huynh Kim      Ngan   1 22/12/1983 NTMK
+0142 Nguyen Thu     Nga    1 02/03/1984 NTMK
+0149 Nguyen Chi     My     0 19/07/1984 NTMK
+0153 Ha Son         Tri    0 27/08/1983 NTMK
+0160 Dinh Minh      Hien   1 31/10/1983 NTMK
+0161 Nguyen Thi     Tam    1 19/02/1984 NTMK
+0183 Nguyen Thi     Tuyet  1 20/12/1983 NTMK
+0190 Tran My        Dung   1 12/01/1984 NTMK
+0191 Ngo Thi        Mai    1 29/08/1983 NTMK
+0198 Truong Minh    Thang  0 26/02/1984 BTX 
+0203 Le Kim         Thoa   1 01/04/1984 BTX 
+0204 Huynh Thanh    Danh   0 07/12/1982 BTX 
+0209 Tran Thi       Loan   1 25/11/1983 BTX 
+0210 Huynh Thi      Cua    1 02/09/1983 BTX 
+0211 Nguyen Minh    Hanh   0 15/11/1983 BTX 
+0215 Tran Thi       Nhi    1 18/11/1984 BTX 
+0217 Pham Thi       Dao    1 08/12/1983 BTX 
+0220 Truong Tuong   Lan    0 19/02/1983 LQD 
+0221 Lam Ngoc       Quan   0 28/08/1983 LQD 
+0222 Bui Thi        Phuong 1 09/02/1984 LQD 
+0226 Nguyen Ngoc    Bich   1 26/08/1983 LQD 
+0227 Vuong Kim      Anh    1 18/04/1984 LQD 
+0232 NGuyen Thu     Van    1 16/09/1984 LQD 
+0245 Nguyen Thi     Dung   1 25/11/1984 LQD 
+0246 Doan Thuy      Trang  1 19/11/1984 LQD 
+0247 Le Trung       Tinh   0 31/12/1982 LQD 
+0252 Hoang Van      Hoa    0 10/01/1984 LQD 
+0253 Ngo Van        Thanh  0 01/09/1982 LQD 
+0257 Nguyen Van     Tien   0 07/10/1983 LQD 
+0263 Nguyen Thanh   Van    1 29/07/1983 LQD 
+0264 Vu Kieu        Oanh   1 09/03/1984 LQD 
+0265 Ngo Van        Son    0 08/07/1984 LQD 
+0270 Nguyen Trong   Nghiep 0 20/07/1983 LQD 
+0271 Dong Van       Khanh  0 22/04/1984 LQD 
+0358 Duong Thi      Tuoi   1 24/12/1983 TV  
+0359 Nguyen Thi     Thuy   1 05/01/1984 TV  
+0365 Nguyen Van     Toai   0 26/09/1983 TV  
+0370 Nguyen Thi     Hanh   1 19/01/1983 TV  
+0376 Nguyen Manh    Tien   0 15/12/1983 LHP 
+0381 Nguyen Van     Tam    0 02/07/1984 LHP 
+0382 Tran Thuy      Dao    1 17/11/1983 LHP 
+0399 Phan Kim       Nga    1 24/08/1984 LHP 
+0405 Chung Thanh    Kim    0 30/09/1983 LHP 
+0411 Nguyen Van     Dung   0 17/12/1983 LHP 
+0412 Vo Thanh       Giang  0 10/07/1984 LHP 
+0417 Nguyen Hong    Nga    1 22/03/1984 LHP 
+0429 Chau Viet      Luan   0 07/09/1983 LHP 
+0435 Le Thanh       Tung   0 26/10/1983 LHP 
+0436 Nguyen Quoc    Phong  0 04/01/1983 LHP 
+0441 Tran Kieu      Au     0 22/12/1982 LHP 
+0446 Dinh Thi       Hai    1 19/12/1983 NTH 
+0451 Huynh My       Le     1 22/02/1984 NTH 
+0452 Pham Van       Tuan   0 20/08/1984 NTH 
+0458 Tran Ngoc      Han    1 22/08/1984 NTH 
+0463 Nguyen Thanh   Hiep   0 11/04/1984 NTH 
+0464 Nguyen Cong    Quan   0 28/10/1984 NTH 
+0470 Nguyen Thanh   Tai    0 25/07/1984 NTH 
+0476 Nguyen Hong    Phi    0 19/02/1984 NTH 
+0481 Nguyen Tuyet   Mai    1 24/03/1983 NTH 
+0482 Phu Tyet       Mai    1 15/09/1984 NTH 
+0487 Le Kim         Loan   1 07/11/1983 NTH 
+0488 Tran Hong      Yen    1 24/06/1984 NTH 
+0495 Tran Thi Ngoc  Han    1 26/07/1984 TV  
+0501 Nguyen T.Ngoc  Lieu   1 29/12/1982 TV  
+0502 Vo Phong       Tran   0 12/06/1984 TV  
+0507 Nguyen Cam     Huong  1 02/03/1983 TV  
+0508 Tran Nhat      Phong  0 05/08/1982 TV  
+0514 Vuong Quoc     Hoi    0 31/03/1983 TV  
+0519 Nguyen Ngoc    Suong  1 11/09/1983 TV  
+0526 Le Hiep        Dinh   0 01/09/1983 TV  
+0527 Do Thanh       Lap    0 28/12/1982 TV  
+0529 Nguyen Van     Dinh   0 07/11/1983 NTH 
+0535 Bui Thanh      Tung   0 14/09/1983 NTH 
+0536 Le Van         Viet   0 09/09/1983 NTH 
+0541 Nguyen Ngoc    Dung   0 22/04/1983 NTH 
+0542 Phan Thanh     Hong   0 15/10/1984 NTH 
+0547 Le Thanh       Nhanh  1 07/07/1983 NTH 
+0548 Nguyen Be      Nam    1 25/08/1984 NTH 
+0554 Phan Thi       Thin   0 13/11/1984 NTH 
+0559 Le Thi Van     Anh    1 21/08/1984 NTH 
+0560 Nguyen Truc    Ly     1 28/11/1983 NTH 
+0566 Vo Giai        Phong  0 16/04/1984 NTH 
+0571 Ho Van         Cau    0 26/03/1984 NTH 
+0572 Nguyen Thanh   Son    0 12/05/1983 NTH 
+0577 Le Hung        Vi     0 02/05/1982 NTH 
+0578 Tran Hoang     Dang   0 12/06/1984 NTH 
+0682 Dang Minh      Quan   0 17/02/1984 BTX 
+0683 Le Thanh       Khoa   0 28/07/1983 BTX 
+0688 Quach Thanh    Hong   0 24/06/1983 BTX 
+0689 Nguyen Tan     Tai    0 22/08/1983 BTX 
+0694 Nguyen Hoang   Dam    0 26/11/1982 BTX 
+0695 Do Thi         Thuy   1 17/08/1984 BTX 
+0696 Nguyen Van     Son    0 12/09/1983 BTX 
+0706 Nguyen Thi     Hoa    1 28/11/1983 BTX 
+0712 Nguyen Van     Thanh  0 13/11/1983 BTX 
+0713 Bui Van        Thanh  0 12/08/1984 BTX 
+0718 Dinh Hai       Nam    0 25/12/1982 BTX 
+0719 Pham Thi       Thom   1 02/07/1984 BTX 
+0725 Huynh Van      On     0 16/04/1984 BTX 
+0736 Do Phuong      Nam    0 01/01/1984 BTX 
+0743 Huynh Phan     Khoi   0 22/05/1983 BTX 
+0754 Pham Van       Hoang  0 27/10/1984 BTX 
+0755 Nguyen Thi     Nhung  1 31/10/1983 BTX 
+0762 Lu Ngoc        Da     0 29/12/1983 NTMK
+0763 Nguyen Thi     Lan    1 12/11/1982 NTMK
+0764 Nguyen Phuoc   Hai    0 04/10/1983 NTMK
+0768 Thang Thi      Sang   1 05/02/1984 NTMK
+0769 Nguyen Thi     Dinh   1 18/05/1983 NTMK
+0770 Nguyen Thi     Hong   1 28/08/1983 NTMK
+0774 Nguyen Hong    Hoa    1 14/12/1983 NTMK
+0780 Tran Van       Minh   0 11/07/1984 NTMK
+0798 Nguyen Thanh   Trung  0 07/12/1984 NTMK
+0799 Pham Van       Sum    0 02/11/1983 NTMK
+0800 Lam Thi Cam    Van    1 02/05/1983 NTMK
+0810 Tran Thu       Oanh   1 04/02/1984 NTMK
+0818 Vo Thanh       Binh   0 13/06/1984 NTMK
+0822 Nguyen Thi     Thao   1 30/01/1983 NTMK
+0823 Vo Kim         Yen    1 16/12/1983 NTMK
+0829 Tran Van       Son    0 20/07/1983 NTMK
+0830 Hua Thanh      Cong   0 31/01/1984 NTMK
+0835 Nguyen Van     Hai    0 09/05/1983 NTMK
+0836 Tran Van       Chieu  0 02/07/1984 NTMK
+0839 Nguyen Thanh   Lam    0 24/03/1984 LQD 
+0840 Pham Van       Cam    0 06/10/1983 LQD 
+0841 Nguyen Quang   Dung   0 21/05/1984 LQD 
+0845 Nguyen Van     Doan   0 15/10/1983 LQD 
+0846 Le Hong        Phuong 0 16/12/1983 LQD 
+0852 Pham Hong      Chung  0 19/05/1983 LQD 
+0865 Cao Van        Trung  0 02/12/1984 LQD 
+0870 Nguyen Thi     Ha     1 27/10/1984 LQD 
+0871 Tran Van       Tuan   0 20/12/1983 LQD 
+0877 Le Phuoc       Hoa    0 11/08/1983 LQD 
+0881 Dinh Phu       Hung   0 31/01/1983 LQD 
+0882 Tran Van       Toan   0 30/06/1982 LQD 
+0887 Tran Le        Nga    1 27/11/1982 LQD 
+0893 Vo Hong        Tuyet  1 23/01/1983 TV  
+0898 Nguyen Thi     Huong  1 04/04/1983 TV  
+0899 Hoang Thi      Loan   1 23/02/1983 TV  
+0904 Phan My        Thien  0 16/12/1983 TV  
+0905 Nguyen Thi ThuyTien   1 09/07/1983 TV  
+0911 Tang Thi       Tinh   1 03/11/1983 TV  
+0917 La Tu          Thanh  0 17/07/1984 TV  
+0922 Nguyen Duc     Hien   0 19/04/1984 TV  
+0923 Nguyen Duc     Hong   0 22/04/1984 TV  
+0928 Nguyen Minh    Nhut   0 09/08/1982 TV  
+0929 Pham Hung      Phuoc  0 22/12/1983 TV  
+0936 Nguyen Thi     Diep   1 26/06/1983 TV  
