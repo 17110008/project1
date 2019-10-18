@@ -43,6 +43,7 @@ namespace Project1
         }
         public void xuatfile()
         {
+            
             StreamWriter intxt = new StreamWriter("D:\\Desktop\\project1\\outputds.txt", false);
             //true = ghi tiep vao file, false = ghi de le du lieu cu
             intxt.WriteLine(textBox1.Text);
@@ -67,6 +68,8 @@ namespace Project1
             txtHoHS.Text = txtHoHS.Text.PadRight(txtHoHS.MaxLength, ' ');
             txtTenHS.MaxLength = 7;
             txtTenHS.Text = txtTenHS.Text.PadRight(txtTenHS.MaxLength, ' ');
+            txtPhai.MaxLength = 4;
+            txtPhai.Text = txtPhai.Text.PadRight(txtPhai.MaxLength, ' ');
             LinkedListNode<string> node = ds.First;
             while (node != null)
             {
@@ -75,7 +78,7 @@ namespace Project1
                 {
                     var them = node;
                     node = node.Next;
-                    ds.AddAfter(them,txtaddMaHS.Text +" " + txtHoHS.Text + txtTenHS.Text  + txtPhai.Text +" "+ txtNgaySinh.Text + " "+txtMaTruong.Text);
+                    ds.AddAfter(them,txtaddMaHS.Text +" " + txtHoHS.Text + txtTenHS.Text  + txtPhai.Text + txtNgaySinh.Text + " "+txtMaTruong.Text);
                 }
                 else
                 {
@@ -93,6 +96,8 @@ namespace Project1
             txtHoHS.Text = txtHoHS.Text.PadRight(txtHoHS.MaxLength, ' ');
             txtTenHS.MaxLength = 7;
             txtTenHS.Text = txtTenHS.Text.PadRight(txtTenHS.MaxLength, ' ');
+            txtPhai.MaxLength = 4;
+            txtPhai.Text = txtPhai.Text.PadRight(txtPhai.MaxLength, ' ');
             LinkedListNode<string> node = ds.First;
 
             while (node != null)
@@ -102,7 +107,7 @@ namespace Project1
                 {
                     var them = node;
                     node = node.Next;
-                    ds.AddBefore(them, txtaddMaHS.Text + " " + txtHoHS.Text + txtTenHS.Text + txtPhai.Text + " " + txtNgaySinh.Text + " " + txtMaTruong.Text);
+                    ds.AddBefore(them, txtaddMaHS.Text + " " + txtHoHS.Text + txtTenHS.Text + txtPhai.Text  + txtNgaySinh.Text + " " + txtMaTruong.Text);
                 }
                 else
                 {
@@ -139,7 +144,9 @@ namespace Project1
             txtHoHS.Text = txtHoHS.Text.PadRight(txtHoHS.MaxLength, ' ');
             txtTenHS.MaxLength = 7;
             txtTenHS.Text = txtTenHS.Text.PadRight(txtTenHS.MaxLength, ' ');
-            ds.AddFirst(txtaddMaHS.Text.Trim() + " " + txtHoHS.Text + txtTenHS.Text + txtPhai.Text.Trim() + " " + txtNgaySinh.Text.Trim() + " " + txtMaTruong.Text.Trim());
+            txtPhai.MaxLength = 4;
+            txtPhai.Text = txtPhai.Text.PadRight(txtPhai.MaxLength, ' ');
+            ds.AddFirst(txtaddMaHS.Text.Trim() + " " + txtHoHS.Text + txtTenHS.Text + txtPhai.Text +  txtNgaySinh.Text.Trim() + " " + txtMaTruong.Text.Trim());
             textBox1.Text = String.Join(Environment.NewLine, ds);
             textBox2.Text = "Tong la " + ds.Count;
         }
@@ -150,7 +157,9 @@ namespace Project1
             txtHoHS.Text = txtHoHS.Text.PadRight(txtHoHS.MaxLength, ' ');
             txtTenHS.MaxLength = 7;
             txtTenHS.Text = txtTenHS.Text.PadRight(txtTenHS.MaxLength, ' ');
-            ds.AddLast(txtaddMaHS.Text.Trim() + " " + txtHoHS.Text + txtTenHS.Text + txtPhai.Text.Trim() + " " + txtNgaySinh.Text.Trim() + " " + txtMaTruong.Text.Trim());
+            txtPhai.MaxLength = 4;
+            txtPhai.Text = txtPhai.Text.PadRight(txtPhai.MaxLength, ' ');
+            ds.AddLast(txtaddMaHS.Text.Trim() + " " + txtHoHS.Text + txtTenHS.Text + txtPhai.Text+ txtNgaySinh.Text.Trim() + " " + txtMaTruong.Text.Trim());
             textBox1.Text = String.Join(Environment.NewLine, ds);
             textBox2.Text = "Tong la " + ds.Count;
         }
